@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  grpc-server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "50051:50051"
+    networks:
+      - grpc-network
+
+  grpc-web-client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    volumes:
+      - client-build:/app/dist
+    networks:
+      - grpc-network
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - client-build:/usr/share/nginx/html
+    networks:
+      - grpc-network
+    depends_on:
+      - grpc-web-client
+      - grpc-server
+
+volumes:
+  client-build:
+
+networks:
+  grpc-network:
+    driver: bridge
