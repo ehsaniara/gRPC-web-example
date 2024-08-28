@@ -3,7 +3,7 @@ import {GreeterClient} from './generated/helloworld_grpc_web_pb';
 import {HelloRequest} from './generated/helloworld_pb';
 
 // Create an instance of the Greeter client
-const client = new GreeterClient('http://localhost/api');
+const client = new GreeterClient('http://localhost:8080');
 
 // Function to send a greeting request
 function sayHello(name) {

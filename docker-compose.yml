@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   grpc-server:
     build:
@@ -14,27 +12,23 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile
-    volumes:
-      - client-build:/app/dist
+    ports:
+      - "8081:8081"  # Serve the static files on port 8081
     networks:
       - grpc-network
 
-  nginx:
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile
-    ports:
-      - "80:80"
+  envoy:
+    image: envoyproxy/envoy:v1.24.0
     volumes:
-      - client-build:/usr/share/nginx/html
-    networks:
-      - grpc-network
+      - ./envoy/envoy.yaml:/etc/envoy/envoy.yaml
+    ports:
+      - "8080:8080"  # Envoy listens on port 8080
+      - "9901:9901"  # Envoy Admin
     depends_on:
       - grpc-web-client
       - grpc-server
-
-volumes:
-  client-build:
+    networks:
+      - grpc-network
 
 networks:
   grpc-network:
