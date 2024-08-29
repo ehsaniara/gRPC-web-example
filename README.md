@@ -4,6 +4,16 @@ This project demonstrates how to set up a simple gRPC-Web client and server with
 
 ![arch.png](docs/arch.png)
 
+# Quick Start
+
+```shell
+docker compose up -d
+```
+
+then open browser http://localhost:8081 (note: this demo uses **8081** and **8080** ports)
+
+![browser.png](docs/browser.png)
+
 ## Project Structure
 
 - **client/**: Contains the gRPC-Web client code.

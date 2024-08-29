@@ -3,8 +3,6 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
-    ports:
-      - "50051:50051"
     networks:
       - grpc-network
 
@@ -23,7 +21,6 @@ services:
       - ./envoy/envoy.yaml:/etc/envoy/envoy.yaml
     ports:
       - "8080:8080"  # Envoy listens on port 8080
-      - "9901:9901"  # Envoy Admin
     depends_on:
       - grpc-web-client
       - grpc-server
