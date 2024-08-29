@@ -1,4 +1,4 @@
-# gRPC-Web Example
+# gRPC on Web Example
 
 This project demonstrates how to set up a simple gRPC-Web client and server with Envoy proxy.
 
