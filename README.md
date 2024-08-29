@@ -98,8 +98,27 @@ func main() {
 }
 ```
 
-## client
+## Envoy config
 
+Envoy has built-in support for grpc_web, here is a code snip of the Envoy proxy config file.
+
+```yaml
+...
+                http_filters:
+                  - name: envoy.filters.http.grpc_web
+                    typed_config:
+                      "@type": type.googleapis.com/envoy.extensions.filters.http.grpc_web.v3.GrpcWeb
+                  - name: envoy.filters.http.cors
+                    typed_config:
+                      "@type": type.googleapis.com/envoy.extensions.filters.http.cors.v3.Cors
+                  - name: envoy.filters.http.router
+                    typed_config:
+                      "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
+...
+```
+
+
+## Web Client
 
 ```typescript
 // Import the generated gRPC-Web client stubs and message classes
