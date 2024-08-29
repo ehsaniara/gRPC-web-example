@@ -1,0 +1,24 @@
+{
+  "name": "grpc-web-client",
+  "version": "1.0.0",
+  "description": "A simple gRPC-Web client example",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --open",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "google-protobuf": "^3.18.1",
+    "grpc-web": "^1.5.0",
+    "protoc-gen-grpc-web": "^1.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.0",
+    "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^5.6.0",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  }
+}
