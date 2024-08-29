@@ -20,7 +20,7 @@ This project demonstrates how to set up a simple gRPC-Web client and server with
 - [grpc-web](https://github.com/grpc/grpc-web)
 - [protoc compiler](https://grpc.io/docs/protoc-installation/)
 
-> NOTE: Client-side and Bi-directional streaming is not currently supported (see [streaming roadmap](https://github.com/grpc/grpc-web?tab=readme-ov-file))
+> NOTE: client-side and bi-directional streaming is not currently supported (see [streaming roadmap](https://github.com/grpc/grpc-web?tab=readme-ov-file))
 
 # proto
 
