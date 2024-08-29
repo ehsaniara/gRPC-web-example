@@ -9,7 +9,6 @@ This project demonstrates how to set up a simple gRPC-Web client and server with
 - **client/**: Contains the gRPC-Web client code.
 - **server/**: Contains the gRPC server code written in Go.
 - **envoy/**: envoy configuration file.
-- **scripts/**: Optional scripts for managing the project.
 
 ## How to Run
 
